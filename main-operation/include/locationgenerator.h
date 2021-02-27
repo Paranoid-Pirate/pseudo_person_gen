@@ -3,11 +3,12 @@
 #include "persongenerator.h"
 #pragma once
 
-class LocalGen : public PersonGenerator{
+class LocalGen : public PersonGenerator
+{
     private:
     std::string location;
     std::vector <std::string> stateArray {"Maryland", "California", "New York", "Washington", "Delaware", "Virginia"};
-    std::vector <std::string> countryArray {"United Kingdom", "Poland", "Switzerland", "Germany", "Russia", "China", "Norway"};
+    std::vector <std::string> countryArray {"United States of Ameirca", "United Kingdom", "Poland", "Switzerland", "Germany", "Russia", "China", "Norway"};
     public:
-    std::string locationGenerator(bool isAmerican);
+    std::string locationGenerator(bool forceAmerican);
 };

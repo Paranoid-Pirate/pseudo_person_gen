@@ -3,7 +3,8 @@
 #include "persongenerator.h"
 #pragma once
 
-class NameGen : public PersonGenerator{
+class NameGen : public PersonGenerator
+{
     private:
     std::vector <std::string> maleFirstNames {"Dave","Dave2","dave3","dave4",};
     std::vector <std::string> maleLastNames {"James","James2","James3","james4",};

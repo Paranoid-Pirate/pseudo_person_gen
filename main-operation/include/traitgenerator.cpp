@@ -10,7 +10,8 @@ void TraitGen::shuffleArray(std::vector<std::string>& array)
     std::swap(array[i], array[std::rand() % (i+1)]);}
 }
 
-std::string TraitGen::traitGenerator(){
+std::string TraitGen::traitGenerator()
+{
     shuffleArray(traitArray);
     std::string traits;
     std::string trait1 = traitArray.back(); traitArray.pop_back();
