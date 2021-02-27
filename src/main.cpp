@@ -7,6 +7,8 @@
 
 int main(int argc, char **argv){
     srand(time(0));
+    InputParser inpars;
+    inpars.inputParsing(argc, argv);
 }
 
 

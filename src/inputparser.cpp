@@ -2,17 +2,17 @@
 #include <vector>
 #include <algorithm>
 #include <stdlib.h>
-#include <../lib/tclap/CmdLine.h>
-#include "../main-operation/include/locationgenerator.h"
-#include "../main-operation/include/namegenerator.h"
-#include "../main-operation/include/traitgenerator.h"
+#include <tclap/CmdLine.h>
+#include "locationgenerator.h"
+#include "namegenerator.h"
+#include "traitgenerator.h"
 #include "inputparser.h"
 
 void InputParser::inputParsing(int argc, char** argv){
     NameGen nmgen;
     LocalGen lcgen;
     TraitGen trtgen;
-    bool maleOrFemale{rand() % 2};
+    bool maleOrFemale{static_cast<bool>(rand() % 2)};
     try{
         TCLAP::CmdLine cmd("Command description message", ' ', "0.1");
         TCLAP::SwitchArg nameOnlySwitch("n","nameonly","Only outputs name", cmd, false);
@@ -40,10 +40,38 @@ void InputParser::inputParsing(int argc, char** argv){
             std::cout<<lcgen.locationGenerator(true)<<std::endl;
         } else if (locationOnly){
             std::cout<<lcgen.locationGenerator(false);
+        } else if (male && forceAmerican){
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(true)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(true)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+        } else if (female && forceAmerican){
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(true)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+        } else if (forceAmerican){
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(maleOrFemale)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(true)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
         } else {
-            std::cout<<nmgen.nameGenerator(maleOrFemale);
-            std::cout<<trtgen.traitGenerator()<<std::endl;
-            std::cout<<lcgen.locationGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(maleOrFemale)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
         }
     } catch (TCLAP::ArgException &e)
 	{ std::cerr << "error: " << e.error() << " for arg " << e.argId() << std::endl; }
