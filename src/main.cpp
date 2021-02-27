@@ -1,7 +1,7 @@
 #include <iostream>
-#include "locationgenerator.h"
-#include "namegenerator.h"
-#include "traitgenerator.h"
+#include "../main-operation/include/locationgenerator.h"
+#include "../main-operation/include/traitgenerator.h"
+#include "../main-operation/include/namegenerator.h"
 
 int main(){
     LocalGen locagen;
