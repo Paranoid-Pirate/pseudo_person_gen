@@ -56,6 +56,22 @@ void InputParser::inputParsing(int argc, char** argv){
             std::cout<<"----------------------------------------"<<std::endl;
             std::cout<<"Location | "<< lcgen.locationGenerator(true)<<std::endl;
             std::cout<<"----------------------------------------"<<std::endl;
+        }else if (male){
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(true)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+        } else if (female){
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Name     | "<< nmgen.nameGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Traits   | "<< trtgen.traitGenerator()<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
+            std::cout<<"Location | "<< lcgen.locationGenerator(false)<<std::endl;
+            std::cout<<"----------------------------------------"<<std::endl;
         } else if (forceAmerican){
             std::cout<<"----------------------------------------"<<std::endl;
             std::cout<<"Name     | "<< nmgen.nameGenerator(maleOrFemale)<<std::endl;
@@ -64,7 +80,7 @@ void InputParser::inputParsing(int argc, char** argv){
             std::cout<<"----------------------------------------"<<std::endl;
             std::cout<<"Location | "<< lcgen.locationGenerator(true)<<std::endl;
             std::cout<<"----------------------------------------"<<std::endl;
-        } else {
+        }else {
             std::cout<<"----------------------------------------"<<std::endl;
             std::cout<<"Name     | "<< nmgen.nameGenerator(maleOrFemale)<<std::endl;
             std::cout<<"----------------------------------------"<<std::endl;
